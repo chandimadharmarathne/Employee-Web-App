@@ -1,0 +1,38 @@
+﻿@page
+@model Employee_Web_App.Pages.Employee.IndexModel
+@{
+}
+
+<br />
+<h1>List of Employee</h1>
+
+<a class="btn btn-primary btn-sm" href="/Employee/Create">New Employee</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Employee Id</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Salary</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.listEmployee)
+		{
+			<tr>
+				<td>@item.employee_Id</td>
+				<td>@item.first_name</td>
+				<td>@item.last_name</td>
+				<td>@item.email</td>
+				<td>@item.salary</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Employee/Edit?id=@item.employee_Id">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Employee/Delete?id=@item.employee_Id">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+
+</table>

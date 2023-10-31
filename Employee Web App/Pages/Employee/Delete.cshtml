@@ -1,0 +1,26 @@
+﻿@page
+@using System.Data.SqlClient;
+@{
+	try
+	{
+		String employee_Id = Request.Query["employee_Id"];
+
+		String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=Employee;Integrated Security=True";
+		using (SqlConnection connection = new SqlConnection(connectionString))
+		{
+			connection.Open();
+			String sql = "DELETE FROM Employee WHERE employee_Id=@employee_Id";
+
+			using (SqlCommand command = new SqlCommand(sql, connection))
+			{
+				command.Parameters.AddWithValue("@employee_Id", employee_Id);
+				command.ExecuteNonQuery();
+			}
+		}
+	}
+	catch (Exception ex)
+	{
+
+	}
+	Response.Redirect("/Employee/Index");
+}
