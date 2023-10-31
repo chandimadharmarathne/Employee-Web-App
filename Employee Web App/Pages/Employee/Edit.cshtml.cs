@@ -61,7 +61,7 @@ namespace Employee_Web_App.Pages.Employee
 			}
 			try
 			{
-				String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=mystore;Integrated Security=True";
+				String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=Employee;Integrated Security=True";
 				using (SqlConnection connection = new SqlConnection(connectionString))
 				{
 					connection.Open();
